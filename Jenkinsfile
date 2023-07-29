@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     input(
-                        message: 'Approve the deployment?'
+                        message: 'Proceed the deployment?'
                     )
                 }
             }

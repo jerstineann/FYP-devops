@@ -20,7 +20,7 @@ pipeline {
               }
            }
 	    
-	   stage('Curl') {
+	   /*stage('Curl') {
               steps {
                 script {
 		    final String url = "http://192.16.0.14:8080/sbc/about.php"
@@ -28,7 +28,7 @@ pipeline {
                     echo response
                }
              }
-           }
+           }*/
 
     }
 }

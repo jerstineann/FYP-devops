@@ -10,6 +10,7 @@ include('../indata/commonFunction.php');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SBC | Login</title>
+	<link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
 	<link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
@@ -63,7 +64,7 @@ if(isset($_POST['user_login'])){
 		$_SESSION['username']= $user_username;
 		if(password_verify($user_password,$row_data['user_password'])){
 			if($user_status=='Active'&& $user_email_status='Verified'){
-				if($rows_count==1 and $rows_count_cart==0){
+				if($rows_count==1 && $rows_count_cart==0){
 					$_SESSION['username']= $user_username;
 					echo "<script>alert('Login Successful')</script>";
 					echo "<script>window.open('profile.php','_self')</script>";

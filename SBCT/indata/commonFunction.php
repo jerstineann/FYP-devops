@@ -2,40 +2,33 @@
 include('connect.php');
     function getproducts(){
         global $con;
-        if(!isset($_GET['subcategory'])){
-            if(!isset($_GET['brand'])){
-                if(!isset($_GET['onSales'])){
-                    $select_query="SELECT * FROM product;";
-                    $result_query=mysqli_query($con, $select_query);
-                    while($row=mysqli_fetch_assoc($result_query)){
-                        $product_id=$row['product_id'];
-                        $product_title=$row['product_title'];
-                        $product_description=$row['product_description'];
-                        $product_image=$row['product_image'];
-                        $product_price=$row['product_price'];
-                        $category_id=$row['category_id'];
-                        $brand_id=$row['brand_id'];
-                        echo"<style>
-                        .product-image {
-                            height: 200px !important; 
-                        }
-                        .product-card {
-                            height: 100px !important; 
-                        }
-                        </style>
-                        <div class='col-md-4 mb-2'>
-                            <div class='card h-100' style='width: 18rem;'>
-                                <img src='./Admin/product_images/$product_image' class='card-img-top  product-image' alt='$product_title'>
-                                <div class='card-body'>
-                                    <h5 class='card-title'>$product_title</h5>
-                                    <p class='card-text'>$product_description</p>
-                                    <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
-                                    <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
-                                </div>
-                            </div>
-                        </div>";
+        if(!isset($_GET['subcategory']) || !isset($_GET['brand']) || !isset($_GET['onSales']) ){
+            $select_query="SELECT * FROM product;";
+            $result_query=mysqli_query($con, $select_query);
+            while($row=mysqli_fetch_assoc($result_query)){
+                $product_id=$row['product_id'];
+                $product_title=$row['product_title'];
+                $product_description=$row['product_description'];
+                $product_image=$row['product_image'];
+                echo"<style>
+                    .product-image {
+                        height: 200px !important; 
                     }
-                }   	
+                    .product-card {
+                        height: 100px !important; 
+                    }
+                    </style>
+                    <div class='col-md-4 mb-2'>
+                        <div class='card h-100' style='width: 18rem;'>
+                            <img src='./Admin/product_images/$product_image' class='card-img-top  product-image' alt='$product_title'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>$product_title</h5>
+                                <p class='card-text'>$product_description</p>
+                                <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
+                                <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
+                            </div>
+                        </div>
+                    </div>";	
             }
         }
     }	
@@ -55,9 +48,6 @@ include('connect.php');
                     $product_title = $row['product_title'];
                     $product_description = $row['product_description'];
                     $product_image = $row['product_image'];
-                    $product_price = $row['product_price'];
-                    $category_id = $row['category_id'];
-                    $brand_id = $row['brand_id'];
                     echo"<style>
                             .product-image {
                                 height: 200px !important; 
@@ -137,9 +127,6 @@ include('connect.php');
                     $product_title = $row['product_title'];
                     $product_description = $row['product_description'];
                     $product_image = $row['product_image'];
-                    $product_price = $row['product_price'];
-                    $category_id = $row['category_id'];
-                    $brand_id = $row['brand_id'];
                     echo"<style>
                             .product-image {
                                 height: 200px !important; 
@@ -179,9 +166,6 @@ include('connect.php');
                     $product_title = $row['product_title'];
                     $product_description = $row['product_description'];
                     $product_image = $row['product_image'];
-                    $product_price = $row['product_price'];
-                    $category_id = $row['category_id'];
-                    $brand_id = $row['brand_id'];
                     echo"<style>
                     .product-image {
                         height: 200px !important; 
@@ -235,9 +219,6 @@ include('connect.php');
                     $product_title=$row['product_title'];
                     $product_description=$row['product_description'];
                     $product_image=$row['product_image'];
-                    $product_price=$row['product_price'];
-                    $category_id=$row['category_id'];
-                    $brand_id=$row['brand_id'];
                     echo"<style>
                                 .product-image {
                                     height: 200px !important; 
@@ -271,9 +252,6 @@ include('connect.php');
 			$product_title=$row['product_title'];
 			$product_description=$row['product_description'];
 			$product_image=$row['product_image'];
-			$product_price=$row['product_price'];
-			$category_id=$row['category_id'];
-			$brand_id=$row['brand_id'];
 			echo"<style>
 				.product-image {
 					height: 200px !important; 
@@ -305,9 +283,6 @@ function getnewProduct(){
 		$product_title=$row['product_title'];
 		$product_description=$row['product_description'];
 		$product_image=$row['product_image'];
-		$product_price=$row['product_price'];
-		$category_id=$row['category_id'];
-		$brand_id=$row['brand_id'];
 		echo"<style>
 			.product-image {
 				height: 200px !important; 
@@ -337,15 +312,12 @@ function viewDetails()
         $product_id = $_GET['product_id'];
         $select_query = "SELECT * FROM product WHERE product_id = $product_id;";
         $result_query = mysqli_query($con, $select_query);
-        $num_of_rows = mysqli_num_rows($result_query);
         while ($row = mysqli_fetch_assoc($result_query)) {
             $product_id = $row['product_id'];
             $product_title = $row['product_title'];
             $product_description = $row['product_description'];
             $product_image = $row['product_image'];
             $product_price = $row['product_price'];
-            $category_id = $row['category_id'];
-            $brand_id = $row['brand_id'];
             echo"
             <style>
                 .product-container {
@@ -453,13 +425,13 @@ function cart_items(){
         	$select_query = "SELECT * FROM cart_details WHERE ip_address='$get_ip'";
         	$result_query = mysqli_query($con, $select_query);
         	$count_cart_items = mysqli_num_rows($result_query);
-     	}else {
+    }else {
         	global $con;
         	$get_ip = getIPAddress(); 
         	$select_query = "SELECT * FROM cart_details WHERE ip_address='$get_ip'";
         	$result_query = mysqli_query($con, $select_query);
         	$count_cart_items = mysqli_num_rows($result_query);
-     	}
+    }
 	echo $count_cart_items;
 }
 // total price function
@@ -497,8 +469,7 @@ function total_cart_price(){
             <td>Total</td>
             <td>$$total_price</td>
         </tr>
-    </table>";
-    
+    </table>"; 
 }
 // get user order details
 function get_user_order_details() {
@@ -506,25 +477,18 @@ function get_user_order_details() {
 	$username = $_SESSION['username'];
 	$get_details = "SELECT * FROM user_table WHERE username='$username'";
 	$result_query = mysqli_query($con, $get_details);
-	
 	while ($row_query = mysqli_fetch_array($result_query)) {
 		$user_id = $row_query['user_id'];
-		
-		if (!isset($_GET['edit-account'])) {
-			if (!isset($_GET['my-orders'])) {
-				if (!isset($_GET['delete-account'])) {
-					$get_orders = "SELECT * FROM user_order WHERE user_id=$user_id AND order_status='pending'";
-					$result_orders_query = mysqli_query($con, $get_orders);
-					$row_count = mysqli_num_rows($result_orders_query);
-					
-					if ($row_count > 0) {
-						echo "<h3 class='text-center my-5'>You have <span class='text-danger'>$row_count</span> pending orders</h3>
-                        <p class='text-center'><a href='profile.php?my_orders' class='text-dark'>Order Details</a></p>";
-					}else{
-                        echo "<h3 class='text-center my-5'>You have zero pending orders</h3>
-                        <p class='text-center'><a href=../index.php' class='text-dark'>Explore Products</a></p>";
-                    }
-				}
+		if (!isset($_GET['edit-account']) || !isset($_GET['my-orders']) || !isset($_GET['delete-account'])) {
+			$get_orders = "SELECT * FROM user_order WHERE user_id=$user_id AND order_status='pending'";
+			$result_orders_query = mysqli_query($con, $get_orders);
+			$row_count = mysqli_num_rows($result_orders_query);
+			if ($row_count > 0) {
+				echo "<h3 class='text-center my-5'>You have <span class='text-danger'>$row_count</span> pending orders</h3>
+                <p class='text-center'><a href='profile.php?my_orders' class='text-dark'>Order Details</a></p>";
+			}else{
+                echo "<h3 class='text-center my-5'>You have zero pending orders</h3>
+                <p class='text-center'><a href=../index.php' class='text-dark'>Explore Products</a></p>";
 			}
 		}
 	}

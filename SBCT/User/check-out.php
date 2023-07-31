@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
     <title>SBC | Check Out</title>
+	<link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
     <link rel="stylesheet" href="user-style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
@@ -15,7 +16,7 @@
 <body>
 <div class="top-nav-bar">
 	<div class="search-box">
-        <a href="../index.php"><img src="../images/logo-dark.jpg" class="logo"></a>
+        <a href="../index.php"><img src="../images/logo-dark.jpg" class="logo" alt=""></a>
 		<form class="d-flex justify-content-center" action="search-product.php" method="get">
         	<input class="form-control" type="search" aria-label="Search" name="search_data">
 			<input type="submit" value="Search" class="btn custom-btn" name="search_data_product">
@@ -79,8 +80,8 @@
 		</div>
 		<div class="col-md-3 footer-image">
 			<h1>Download App</h1>
-			<img src="../images/play-store.png">
-			<img src="../images/app-store.png">
+			<img src="../images/play-store.png" alt="">
+			<img src="../images/app-store.png" alr="">
 		</div>
 	</div>
 	<hr>

@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
     <link rel="stylesheet" href="user-style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
@@ -59,15 +59,15 @@
 	<div class="row">
 		<div class="col-md-3">
 			<h1>Useful Links</h1>
-			<p><a href="privacy-policy.php">Privacy Policy</a></p>
-			<p><a href="terms-of-use.php">Terms of Use</a></p>
-			<p><a href="return-policy.php">Return Policy</a></p>
+			<p><a href="../privacy-policy.php">Privacy Policy</a></p>
+			<p><a href="../terms-of-use.php">Terms of Use</a></p>
+			<p><a href="../return-policy.php">Return Policy</a></p>
 			<p>Discount Coupons</p>
 		</div>
 		<div class="col-md-3">
 			<h1>Company</h1>
-			<p><a href="about.php">About Us</a></p>
-			<p><a href="contactUs.php">Contact Us</a></p>
+			<p><a href="../about.php">About Us</a></p>
+			<p><a href="../contactUs.php">Contact Us</a></p>
 			<p>Career</p>
 			<p>Affiliate</p>
 		</div>

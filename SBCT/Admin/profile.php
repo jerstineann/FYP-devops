@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<title>Admin Dashboard</title>
+	<link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
 <style>
 .logo{
 	height: 20%;
@@ -40,10 +41,10 @@
 <body>
     <!---- navbar ----->
     <div class="container-fluid p-0">
-		<nav class="navbar navbar-expand-lg navbar-light">
+		<nav class="navbar navbar-expand-lg navbar-light" aria-label="Main Navigation">
 			<div class="container-fluid">
-				<a href="profile.php"><img src="../images/logo-dark.jpg" class="logo"></a>
-				<nav class="navbar navbar-expand-lg">
+				<a href="profile.php"><img src="../images/logo-dark.jpg" class="logo" alt=""></a>
+				<nav class="navbar navbar-expand-lg" aria-label="Secondary Navigation">
 					<ul class="navbar-nav">
 						<li class="nav-item">
 							<?php
@@ -60,7 +61,7 @@
 		<div class="row">
 			<div class="col-md-12 bg-secondary p1 d-flex align-items-center">
     			<div>
-        			<a href="#"><img src="../images/user-1.png" class="admin-image"></a>
+        			<a href="#"><img src="../images/user-1.png" class="admin-image" alt=""></a>
 					<?php
         			echo"<p class='text-light'>".$_SESSION['username']."</p>";
 					?>

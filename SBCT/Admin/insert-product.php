@@ -50,6 +50,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
     <title>Admin Dashboard | Insert Products</title>
+    <link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="admin-style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -72,7 +73,7 @@
     <div class="container-fluid p-0">
 	    <nav class="navbar navbar-expand-lg navbar-light">
 		    <div class="container-fluid">
-			    <a href="profile.php"><img src="../images/logo-dark.jpg" class="logo"></a>
+			    <a href="profile.php"><img src="../images/logo-dark.jpg" class="logo" alt=""></a>
 		</nav>
 	</div>
     <div class="container int-pro">

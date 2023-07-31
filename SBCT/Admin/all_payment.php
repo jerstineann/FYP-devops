@@ -1,4 +1,5 @@
 <h3 class="text-center" style="color:#C65C81;">ALL Payments</h3>
+<!---- payement table---->
 <table class="table table-bordered mt-5 text-center">
     <thead style="background: #E799A3; color:white;">
         <tr>
@@ -29,7 +30,7 @@
             <td><?php echo $amount?></td>
             <td><?php echo $payment_mode?></td>
             <td><?php echo $date?></td>
-            <td><a onclick="checker()"href="profile.php?delete_payment=<?php echo $payment_id?>"  class="text-light"><i class="fa fa-trash-o"></i></a></td>
+            <td><a onclick="checker()"href="profile.php?delete_payment=<?php echo $payment_id?>" class="text-light"><i class="fa fa-trash-o"></i></a></td>
         </tr>
         <?php } ?>
     </tbody>

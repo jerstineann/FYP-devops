@@ -40,11 +40,11 @@ if (isset($_POST['user_update'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>SBC | Edit Account</title>
+    <link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
     <link rel="stylesheet" href="user-style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">

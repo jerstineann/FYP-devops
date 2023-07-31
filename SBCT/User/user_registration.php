@@ -1,6 +1,10 @@
 <?php 
 include('../indata/connect.php');
 include('../indata/commonFunction.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require '../vendor/autoload.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +13,7 @@ include('../indata/commonFunction.php');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SBC | Register</title>
+    <link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -19,7 +24,7 @@ include('../indata/commonFunction.php');
 <body>
 <div class="top-nav-bar">
 	<div class="search-box">
-        <a href="../index.php"><img src="../images/logo-dark.jpg" class="logo"></a>
+        <a href="../index.php"><img src="../images/logo-dark.jpg" class="logo" alt=""></a>
 		<form class="d-flex justify-content-center" action="search-product.php" method="get">
         	<input class="form-control" type="search" aria-label="Search" name="search_data">
 			<input type="submit" value="Search" class="btn custom-btn" name="search_data_product">
@@ -135,29 +140,27 @@ if (isset($_POST['user_register'])) {
                 $otp = rand(100000, 999999);
                 $_SESSION['otp'] = $otp;
                 $_SESSION['mail'] = $user_email;
-
-                // Sending email using PHPMailer
-                require "../Mail/phpmailer/PHPMailerAutoload.php";
-                $mail = new PHPMailer;
-
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->Port = 587;
-                $mail->SMTPAuth = true;
-                $mail->SMTPSecure = 'tls';
-
-                $mail->Username = 'dammyfyp@gmail.com';
-                $mail->Password = 'fyp2023!';
-
+                //Create an instance; passing `true` enables exceptions
+                $mail = new PHPMailer(true);
+                //Server settings
+                $mail->isSMTP();                            //Send using SMTP
+                $mail->Host = 'smtp.gmail.com';           //Set the SMTP server to send through
+                $mail->SMTPAuth = true;                     //Enable SMTP authentication
+                $mail->Username = 'dammyfyp@gmail.com';       //SMTP username
+                $mail->Password = 'xryymaffhaqzdlfg';                 //SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
+                $mail->Port = 465;                           //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                //Recipients
                 $mail->setFrom('dammyfyp@gmail.com', 'OTP Verification');
-                $mail->addAddress($user_email);
-                $mail->isHTML(true);
+                $mail->addAddress($user_email);     //Add a recipient
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = "Your verify code";
-                $mail->Body = "<p>Dear user,</p><h3>Your verify OTP code is $otp<br></h3><br><br><p>With regards,</p><b>SBC</b>";
-				
+                $mail->Body    = "<p>Dear user,</p><h3>Your verify OTP code is $otp<br></h3><br><br><p>With regards,</p><b>SBC</b>" ;
+                $mail->send();
 				if ($mail->send()) {
 					echo "<script>alert('Register Successfully, OTP sent to your email');</script>";
-					header('Location: verification.php');
+                    echo "<script>window.open('verification.php','_self')</script>";
 					exit();
 				} else {
 					echo "<script>alert('Register Failed, Invalid Email');</script>";

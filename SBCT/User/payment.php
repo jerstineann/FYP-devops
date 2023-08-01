@@ -35,7 +35,7 @@
 	<h2 class="text-center" style="color: #E799A3;">Payment options</h2>
     <div class="row d-flex justify-content align-items-center my-5">
         <div class="col-md-6">
-            <a href="https://www.paypal.com" target="_blank"><img src="../images/UPI.jpeg" alt=""></a>
+            <a href="https://www.paypal.com" target="_blank"><img src="../images/UPI.jpg" alt=""></a>
         </div>
         <div class="col-md-6">
             <a href="order.php?user_id=<?php echo $user_id ?>" style="text-decoration: none; color: black;"><h2>Pay offline</h2></a>

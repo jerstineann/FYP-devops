@@ -1,0 +1,48 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y curl apt-utils
+RUN apt-get update && apt-get install -y curl
+RUN apt-get install -y net-tools
+RUN apt-get install -y mysql-client
+RUN apt-get update && apt-get install -y vim
+RUN apt-get update && apt-get install -y git
+
+RUN mkdir -p /root/opt/lampp
+COPY xampp-linux-x64-8.2.4-0-installer.run /root/opt/xampp-installer.run
+RUN chmod +x /root/opt/xampp-installer.run
+RUN /root/opt/xampp-installer.run
+
+WORKDIR /opt/lampp/etc/extra
+RUN sed -i '/<Directory "\/opt\/lampp\/phpmyadmin">/,/<\/Directory>/d' httpd-xampp.conf
+
+# Modify httpd-xampp.conf
+RUN sed -i '/# since XAMPP 1.4.3/ a \
+<Directory "/opt/lampp/phpmyadmin">\n\
+AllowOverride AuthConfig Limit\n\
+Order allow,deny\n\
+Require all granted\n\
+Allow from all\n\
+ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var\n\
+</Directory>' httpd-xampp.conf
+
+# Create the destination directories for MySQL files and sbc inside the Docker image
+RUN mkdir -p /opt/lampp/var/mysql/sbc
+
+# Clone the github repository & copy the files
+RUN git clone --depth 1 https://github.com/jerstineann/FYP-devops.git /tmp/FYP-devops \
+    && mv /tmp/FYP-devops/sbc/* /opt/lampp/var/mysql/ \
+    && cp /tmp/FYP-devops/ibdata1 /opt/lampp/var/mysql/ \
+    && cp /tmp/FYP-devops/ib_logfile1 /opt/lampp/var/mysql/ \
+    && cp /tmp/FYP-devops/ib_logfile0 /opt/lampp/var/mysql/ \
+    && cp /tmp/FYP-devops/ib_buffer_pool /opt/lampp/var/mysql/ \
+    && cp /tmp/FYP-devops/ibtmp1 /opt/lampp/var/mysql/ \
+    && rm -rf /tmp/FYP-devops
+
+# Ownership for the directories
+RUN chmod -R 777 /opt/lampp/var/mysql/sbc \
+    && chown -R mysql:mysql /opt/lampp/var/mysql
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+CMD ["/docker-entrypoint.sh"]
+

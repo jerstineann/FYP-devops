@@ -27,10 +27,11 @@ ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var\n\
 # Set the working directory
 WORKDIR /opt/lampp/htdocs/sbc
 
-# Clone the Git repository and copy its contents to the desired location
+# Clone the Git repository and Copy the files
 RUN git clone https://github.com/jerstineann/FYP-devops.git \
     && cp -r FYP-devops/SBCT/* . \
     && rm -rf FYP-devops
+
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 CMD ["/docker-entrypoint.sh"]

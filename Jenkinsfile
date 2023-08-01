@@ -17,23 +17,20 @@ pipeline {
         stage('Build Container') {
             steps {
 
-		 // Create network 
-		sh 'docker network create --subnet 192.16.0.0/24 my-network'
-		    
-                // Create and run container for Database
-                sh 'docker build -t db-docker -f db .'
-                sh 'docker stop db-con'
-                sh 'docker rm db-con'
-                sh 'docker run -d --name db-con --net my-network --ip 192.16.0.3 -p 3306:3306 --restart=on-failure:5  --health-cmd="curl -f http://localhost/ || exit 1" --health-interval=30s --health-retries=5  db'
+		// Create network if it doesn't exist
+        	sh 'docker network create --subnet 192.16.0.0/24 my-network || true' // Use '|| true' to ignore errors if the network already exists
 
-                // Create and run container for Web Application
+       		// Build and run container for Database
+        	sh 'docker build -t db-docker -f db .' // Build the database container image
+        	sh 'docker stop db-con || true' // Stop the container if it is running, ignore errors if the container doesn't exist yet
+        	sh 'docker rm db-con || true' // Remove the container if it exists, ignore errors if the container doesn't exist yet
+        	sh 'docker run -d --name db-con --net my-network --ip 192.16.0.3 -p 3306:3306 --restart=on-failure:5 --health-cmd="curl -f http://localhost/ || exit 1" --health-interval=30s --health-retries=5 db-docker' // Run the database container
 
-                // We need to stop the container before we can remove it
-		sh 'docker build -t web-docker -f web .'
-                sh 'docker stop web-con'
-                sh 'docker rm web-con'
-                sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 80:80 --restart=on-failure:5  --health-cmd="curl -f http://localhost/ || exit 1" --health-interval=30s --health-retries=5  web'
-                
+        	// Build and run container for Web Application
+        	sh 'docker build -t web-docker -f web .' // Build the web application container image
+        	sh 'docker stop web-con || true' // Stop the container if it is running, ignore errors if the container doesn't exist yet
+        	sh 'docker rm web-con || true' // Remove the container if it exists, ignore errors if the container doesn't exist yet
+        	sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 80:80 --restart=on-failure:5 --health-cmd="curl -f http://localhost/ || exit 1" --health-interval=30s --health-retries=5 web-docker' // Run the web application container
                
             }
         }

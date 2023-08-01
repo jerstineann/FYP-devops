@@ -25,7 +25,6 @@ Allow from all\n\
 ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var\n\
 </Directory>' httpd-xampp.conf
 
-# Create the destination directories for MySQL files and sbc inside the Docker image
 RUN mkdir -p /opt/lampp/var/mysql/sbc
 
 # Clone the github repository & copy the files

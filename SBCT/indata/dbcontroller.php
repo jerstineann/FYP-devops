@@ -1,6 +1,6 @@
 <?php
     class DBController {
-        private $host = "196.16.0.3";
+        private $host = "localhost";
         private $user = "sbc";
         private $pass = "fyp";
         private $dbname = "sbc";

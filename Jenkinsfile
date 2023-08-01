@@ -1,10 +1,11 @@
 pipeline {
     agent any
     
-     environment {
+     /*environment {
         // Define the SonarQube Scanner installation
         SONAR_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    }
+    }*/
+	
     stages {
 
         stage('Gatekeeper') {

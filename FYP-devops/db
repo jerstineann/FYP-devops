@@ -1,0 +1,31 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y curl apt-utils
+RUN apt-get update && apt-get install -y curl
+RUN apt-get install -y apt
+RUN apt-get install -y net-tools
+RUN apt-get install -y libterm-readline-gnu-perl
+RUN mkdir -p /root/opt/lampp
+COPY xampp-linux-x64-8.2.4-0-installer.run /root/opt/xampp-installer.run
+RUN chmod +x /root/opt/xampp-installer.run
+RUN /root/opt/xampp-installer.run
+
+WORKDIR /opt/lampp/etc/extra
+RUN sed -i '/<Directory "\/opt\/lampp\/phpmyadmin">/,/<\/Directory>/d' httpd-xampp.conf
+
+# Modify httpd-xampp.conf
+RUN sed -i '/# since XAMPP 1.4.3/ a \
+<Directory "/opt/lampp/phpmyadmin">\n\
+AllowOverride AuthConfig Limit\n\
+Order allow,deny\n\
+Require all granted\n\
+Allow from all\n\
+ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var\n\
+</Directory>' httpd-xampp.conf
+
+WORKDIR /
+
+COPY start_services.sh /start_services.sh
+RUN chmod +x /start_services.sh
+CMD ["/bin/sh", "/start_services.sh"]
+

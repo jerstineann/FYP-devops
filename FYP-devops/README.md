@@ -1,2 +1,0 @@
-# FYP-devops
-fyp devops

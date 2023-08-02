@@ -25,21 +25,21 @@ Allow from all\n\
 ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var\n\
 </Directory>' httpd-xampp.conf
 
-RUN mkdir -p /opt/lampp/var/mysql/sbc
+WORKDIR /
 
-# Clone the github repository & copy the files
-RUN git clone --depth 1 https://github.com/jerstineann/FYP-devops.git /tmp/FYP-devops \
-    && mv /tmp/FYP-devops/sbc/* /opt/lampp/var/mysql/ \
-    && cp /tmp/FYP-devops/ibdata1 /opt/lampp/var/mysql/ \
-    && cp /tmp/FYP-devops/ib_logfile1 /opt/lampp/var/mysql/ \
-    && cp /tmp/FYP-devops/ib_logfile0 /opt/lampp/var/mysql/ \
-    && cp /tmp/FYP-devops/ib_buffer_pool /opt/lampp/var/mysql/ \
-    && cp /tmp/FYP-devops/ibtmp1 /opt/lampp/var/mysql/ \
-    && rm -rf /tmp/FYP-devops
+COPY start_services.sh /start_services.sh
+RUN chmod +x /start_services.sh
 
-# Ownership for the directories
-RUN chmod -R 777 /opt/lampp/var/mysql/sbc \
-    && chown -R mysql:mysql /opt/lampp/var/mysql
+COPY ibdata1 /opt/lampp/var/mysql/
+COPY ib_logfile1 /opt/lampp/var/mysql/
+COPY ib_logfile0 /opt/lampp/var/mysql/
+COPY ib_buffer_pool /opt/lampp/var/mysql/
+COPY ibtmp1 /opt/lampp/var/mysql/
+RUN chown -R mysql:mysql /opt/lampp/var/mysql/
+
+COPY sbc/. /opt/lampp/var/mysql/sbc/
+RUN chmod -R 777 /opt/lampp/var/mysql/sbc/
+
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh

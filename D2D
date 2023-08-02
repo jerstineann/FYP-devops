@@ -27,9 +27,6 @@ ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var\n\
 
 WORKDIR /
 
-COPY start_services.sh /start_services.sh
-RUN chmod +x /start_services.sh
-
 COPY ibdata1 /opt/lampp/var/mysql/
 COPY ib_logfile1 /opt/lampp/var/mysql/
 COPY ib_logfile0 /opt/lampp/var/mysql/

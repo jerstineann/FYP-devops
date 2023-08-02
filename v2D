@@ -29,7 +29,7 @@ WORKDIR /opt/lampp/htdocs/sbc
 
 # Clone the Git repository and Copy the files
 RUN git clone https://github.com/jerstineann/FYP-devops.git \
-    && cp -r FYP-devops/SBCT/* . \
+    && cp -r FYP-devops/SBCW/* . \
     && rm -rf FYP-devops
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh

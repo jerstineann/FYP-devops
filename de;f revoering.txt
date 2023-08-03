@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Function to handle cleanup and exit
+cleanup_and_exit() {
+    exit $1
+}
+
+# Wait for MySQL server to start
+until mysqladmin ping -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" &>/dev/null; do
+    echo "Waiting for MySQL server..."
+    sleep 2
+done
+
+# Function to check if a process is running
+check_process() {
+    PROCESS_NAME=$1
+    if ! pgrep -x "$PROCESS_NAME" > /dev/null; then
+        echo "$PROCESS_NAME is not running. Attempting to start..."
+        # Start the process here (using the correct action for MySQL)
+        if [ "$PROCESS_NAME" = "apache2" ]; then
+            /opt/lampp/lampp startapache
+        elif [ "$PROCESS_NAME" = "mysql" ]; then
+            /opt/lampp/lampp startmysql
+        else
+            echo "Unknown process: $PROCESS_NAME"
+        fi
+    else
+        echo "$PROCESS_NAME is running."
+    fi
+}
+
+
+# Start Apache web server (optional, if not started automatically)
+/opt/lampp/lampp startapache
+
+# Start MySQL server (optional, if not started automatically)
+/opt/lampp/lampp startmysql
+
+# Start ProFTPD FTP server (optional, if not started automatically)
+/opt/lampp/lampp startftp
+
+# Keep the container running by executing a long-running command
+tail -f /dev/null
+
+# You can also perform cleanup actions when the container is stopped or exits
+trap 'cleanup_and_exit $?' SIGTERM SIGINT
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh

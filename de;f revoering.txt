@@ -90,3 +90,10 @@ kubectl get deployments
 
 minikube service web-service --url
 
+
+kubectl delete services web-service
+kubectl delete deployments web
+kubectl delete pods web
+docker rmi web
+docker rmi divya120/web
+

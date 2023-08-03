@@ -16,7 +16,8 @@ pipeline {
 
         stage('Build Container') {
             steps {
-		dir('/home/shannen/Downloads') {
+
+		sh 'cd /home/shannen/Downloads'
 		// Create network if it doesn't exist
         	sh 'docker network create --subnet 192.16.0.0/24 my-network || true' // Use '|| true' to ignore errors if the network already exists
 
@@ -43,7 +44,7 @@ pipeline {
         	sh 'docker stop web-con || true' // Stop the container if it is running, ignore errors if the container doesn't exist yet
         	sh 'docker rm web-con || true' // Remove the container if it exists, ignore errors if the container doesn't exist yet
         	sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 80:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web-docker' // Run the web application container*/
-            	}
+            	
 	    }
         }
         /*stage('SonarQube Analysis') {

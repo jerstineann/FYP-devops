@@ -17,7 +17,7 @@ pipeline {
         stage('Build Container') {
             steps {
 
-
+		// Create network if it doesn't exist
         	sh 'docker network create --subnet 192.16.0.0/24 my-network || true' // Use '|| true' to ignore errors if the network already exists
 
        		// Build and run container for Database

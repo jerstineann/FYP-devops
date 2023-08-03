@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    tier: frontend
+    app: web  # Update the app label to "web"
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: web  # Update the app label to "web"
+    spec:
+      containers:
+        - name: web
+          image: divya120/web  # Update the image name to "divya120/web"
+  

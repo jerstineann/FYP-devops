@@ -77,3 +77,16 @@ root@FYP-SR2289:/home/dockeradm/Downloads# minikube start --force
 🍿  Related issue: https://github.com/kubernetes/minikube/issues/6391
 
 
+kubectl run web --image=divya120/web
+ kubectl run db --image=divya120/db
+
+kubectl apply -f db-deployment.yaml
+kubectl apply -f deployment.yaml
+
+kubectl apply -f web-service.yaml
+kubectl apply -f db-service.yaml
+
+kubectl get deployments
+
+minikube service web-service --url
+

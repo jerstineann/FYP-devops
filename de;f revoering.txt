@@ -60,3 +60,20 @@ kubectl version --client
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
 
+root@FYP-SR2289:/home/dockeradm/Downloads# minikube start --force
+😄  minikube v1.23.2 on Ubuntu 18.04
+❗  minikube skips various validations when --force is supplied; this may lead to unexpected behavior
+✨  Automatically selected the docker driver. Other choices: ssh, none
+🛑  The "docker" driver should not be used with root privileges.
+💡  If you are running minikube within a VM, consider using --driver=none:
+📘    https://minikube.sigs.k8s.io/docs/reference/drivers/none/
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+🤦  StartHost failed, but will try again: boot lock: unable to open /tmp/juju-mke11f63b5835bf422927bf558fccac7a21a838f: permission denied
+😿  Failed to start docker container. Running "minikube delete" may fix it: boot lock: unable to open /tmp/juju-mke11f63b5835bf422927bf558fccac7a21a838f: permission denied
+
+❌  Exiting due to HOST_JUJU_LOCK_PERMISSION: Failed to start host: boot lock: unable to open /tmp/juju-mke11f63b5835bf422927bf558fccac7a21a838f: permission denied
+💡  Suggestion: Run 'sudo sysctl fs.protected_regular=0', or try a driver which does not require root, such as '--driver=docker'
+🍿  Related issue: https://github.com/kubernetes/minikube/issues/6391
+
+

@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: divya120/db
+          image: divya120/web
           livenessProbe:
             httpGet:
               path: /healthz

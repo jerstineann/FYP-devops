@@ -1,10 +1,12 @@
+
+  
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web
   labels:
     tier: frontend
-    app: web  # Update the app label to "web"
+    app: web  
 spec:
   selector:
     matchLabels:
@@ -13,9 +15,16 @@ spec:
   template:
     metadata:
       labels:
-        app: web  # Update the app label to "web"
+        app: web  
     spec:
       containers:
         - name: web
-          image: divya120/web  # Update the image name to "divya120/web"
-  
+          image: divya120/db
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 10
+~                                                                                                                                                                                    
+~            

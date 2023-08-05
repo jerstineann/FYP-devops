@@ -1,92 +1,106 @@
 pipeline {
     agent any
     
-     /*environment {
+     environment {
         // Define the SonarQube Scanner installation
         SONAR_SCANNER_HOME = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    }*/
+    }
 	
     stages {
 
         stage('Gatekeeper') {
             steps {
-                input(message: 'Proceed with deployment?')
+                input(message: 'Proceed with pipeline deployment?')
             }
         }
 
-        stage('Build Container') {
+	stage('SonarQube Analysis') {
             steps {
-
-		// Create network if it doesn't exist
-        	sh 'docker network create --subnet 192.16.0.0/24 my-network || true' // Use '|| true' to ignore errors if the network already exists
-
-       		// Build and run container for Database
-        	sh 'docker build -t db -f /home/shannen/Downloads/db-docker /home/shannen/Downloads'// Build the database container image
-        	sh 'docker stop db-con || true' // Stop the container if it is running, ignore errors if the container doesn't exist yet
-        	sh 'docker rm db-con || true' // Remove the container if it exists, ignore errors if the container doesn't exist yet
-        	sh 'docker run -d --name db-con --net my-network --ip 192.16.0.3 -p 3306:3306 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.3/ || exit 1" --health-interval=30s --health-retries=5 db-docker' // Run the database container
-
-        	// Build and run container for Web Application
-        	sh 'cd /home/shannen/Downloads && docker build -t db -f db-docker .' // Build the web application container image
-        	sh 'docker stop web-con || true' // Stop the container if it is running, ignore errors if the container doesn't exist yet
-        	sh 'docker rm web-con || true' // Remove the container if it exists, ignore errors if the container doesn't exist yet
-        	sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 80:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web-docker' // Run the web application container
-
-		// Build and run container for Database
-        	/*sh 'docker build -t db -f /home/dockeradm/Downloads/db-docker .' // Build the database container image
-        	sh 'docker stop db-con || true' // Stop the container if it is running, ignore errors if the container doesn't exist yet
-        	sh 'docker rm db-con || true' // Remove the container if it exists, ignore errors if the container doesn't exist yet
-        	sh 'docker run -d --name db-con --net my-network --ip 192.16.0.3 -p 3306:3306 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.3/ || exit 1" --health-interval=30s --health-retries=5 db-docker' // Run the database container*/
-
-        	// Build and run container for Web Application
-        	/*sh 'docker build -t web -f web-docker .' // Build the web application container image
-        	sh 'docker stop web-con || true' // Stop the container if it is running, ignore errors if the container doesn't exist yet
-        	sh 'docker rm web-con || true' // Remove the container if it exists, ignore errors if the container doesn't exist yet
-        	sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 80:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web-docker' // Run the web application container*/
-            	
-	    }
+                // Change working directory for this stage only
+                      script {
+                        withSonarQubeEnv('sonarserver') {
+                            sh 'cd /home/shannen/Downloads/FYP-devops/SBCW && ' +
+			        '/opt/sonar-scanner/bin/sonar-scanner' +
+			        ' -X' + // Add -X to enable full debug logging
+                                ' -Dsonar.projectKey=SBC_Analysis' +
+                                ' -Dsonar.sources=.' +
+                                ' -Dsonar.host.url=http://192.168.81.152:9000' +
+                                ' -Dsonar.login=squ_bbcffd6a15a47fb1d7347fd0a8b66f08cc373289'
+                        }
+                     }
+              }
         }
-        /*stage('SonarQube Analysis') {
+
+	//To ask user if he/she wants to deploy WAR file into container. If no error found in the WAR file, then user can click proceed. Else, user click abort
+        stage('Gatekeeper 2') {
             steps {
-                script {
-                    withSonarQubeEnv('sonarserver') {
-                        // Run SonarQube Scanner with custom executable path
-                        //sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
-                        
-                        sh '/opt/sonar-scanner/bin/sonar-scanner' +
-                           ' -Dsonar.projectKey=SBCT_Test' +
-                           ' -Dsonar.sources=.' +
-                           ' -Dsonar.host.url=http://192.168.81.152:9000' +
-                           ' -Dsonar.login=sqp_32f5e57313d347d0232dd458bfe3297abbb3a30e'
-                    }
-                }
+                input(message: 'Build containers and Deploy the website?')
             }
-        }*/
-        
+        }
+
+	    
+	    stage('Build & Deploy Container') {  
+            steps {
+      
+            // Copy necessary files from /home/shannen/Downloads to Jenkins build context
+            sh 'cp /home/shannen/Downloads/xampp-linux-x64-8.2.4-0-installer.run /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp /home/shannen/Downloads/ib_buffer_pool /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp /home/shannen/Downloads/ibdata1 /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp /home/shannen/Downloads/ib_logfile0 /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp /home/shannen/Downloads/ib_logfile1 /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp /home/shannen/Downloads/ibtmp1 /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp /home/shannen/Downloads/docker-entrypoint.sh /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp /home/shannen/Downloads/start_services.sh /var/lib/jenkins/workspace/FYP_Project'
+            sh 'cp -r /home/shannen/Downloads/FYP-devops/sbc /var/lib/jenkins/workspace/FYP_Project'
+
+            // Create network if it doesn't exist
+            sh 'docker network create --subnet 192.16.0.0/24 my-network || true'
+
+            // Build and run container for Database
+            sh 'docker stop db-con || true'  //true is to prevent the script from failing due to a non-critical error.
+            sh 'docker rm db-con || true'
+            sh 'docker rmi db || true'
+            sh 'docker build -t db -f /home/shannen/Downloads/db-docker .'
+            sh 'docker run -d --name db-con --net my-network --ip 192.16.0.3 -p 3306:3306 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.3/ || exit 1" --health-interval=30s --health-retries=5 db'
+            
+            // Execute the SQL script inside the container
+
+	        script {
+            
+            sh '''
+            docker cp /var/lib/jenkins/workspace/FYP_Project@2/setup.sql db-con:/tmp/setup.sql
+            docker exec db-con ls -l /tmp/setup.sql
+            sleep 10 # Wait for container to fully initialize
+            docker exec db-con sh -c "/opt/lampp/bin/mysql -uroot < /tmp/setup.sql"
+            '''
+
+            }
+
+
+            // Build and run container for Web Application
+            sh 'docker stop web-con || true'
+            sh 'docker rm web-con || true'
+
+            sh 'docker rmi web || true'
+            sh 'docker build -t web -f /home/shannen/Downloads/web-docker .'
+            sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 81:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web'
+	        sleep 10  //Wait for container to fully initialize
+
+            }
     
-        /*stage('Quality Gate') {
-            steps {
-                timeout(time:10, unit: 'MINUTES'){
-                    waitForQualityGate abortPipeline: true
+        }
+
+	    
+        stage('Curl') {
+    	   steps {
+                script {
+                final String url = "http://192.16.0.2/sbc/index.php"
+                final String response = sh(script: "curl -Is $url", returnStdout: true).trim()
+                echo "$response" // Use $response and enclose $url in curly braces
                 }
             }
-        }*/
-
-
-        
-         /*stage('Curl') {
-            steps {
-               sh 'curl -Is http://196.16.0.3:8080/Sbc1/Sbc1/index.php'
-            }
-        */}
-
-    /*post {
-        failure {
-            emailext (
-            to: '21012260@myrp.edu.sg',
-            subject: 'Pipeline Failed: ${currentBuild.fullDisplayName}',
-            body: 'The pipeline failed. Check the console output for details.'
-            )
         }
-    }*/
- }
+
+
+    }
+}

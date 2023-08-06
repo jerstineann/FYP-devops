@@ -27,8 +27,6 @@ Allow from all\n\
 ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var\n\
 </Directory>' httpd-xampp.conf
 
-WORKDIR /
-
 COPY ibdata1 /opt/lampp/var/mysql/
 COPY ib_logfile1 /opt/lampp/var/mysql/
 COPY ib_logfile0 /opt/lampp/var/mysql/

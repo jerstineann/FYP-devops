@@ -39,7 +39,6 @@ RUN chown -R mysql:mysql /opt/lampp/var/mysql/
 COPY sbc/. /opt/lampp/var/mysql/sbc/
 RUN chmod -R 777 /opt/lampp/var/mysql/sbc/
 
-
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 CMD ["/docker-entrypoint.sh"]

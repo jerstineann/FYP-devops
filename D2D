@@ -1,10 +1,13 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y curl apt-utils
-RUN apt-get install -y mysql-client
-RUN apt-get install -y net-tools
-RUN apt-get install -y libterm-readline-gnu-perl
-RUN apt-get update && apt-get install -y vim
+RUN apt-get update \
+    && apt-get install -y \
+        curl \
+        apt-utils \
+        net-tools \
+        libterm-readline-gnu-perl \
+        mysql-client \
+        vim
 
 RUN mkdir -p /root/opt/lampp
 COPY xampp-linux-x64-8.2.4-0-installer.run /root/opt/xampp-installer.run

@@ -9,7 +9,6 @@ RUN apt-get update \
         mysql-client \
         git
 
-
 RUN mkdir -p /root/opt/lampp
 COPY xampp-linux-x64-8.2.4-0-installer.run /root/opt/xampp-installer.run
 RUN chmod +x /root/opt/xampp-installer.run

@@ -6,7 +6,8 @@ RUN apt-get update \
         apt-utils \
         net-tools \
         libterm-readline-gnu-perl \
-        mysql-client
+        mysql-client \
+        git
 
 
 RUN mkdir -p /root/opt/lampp

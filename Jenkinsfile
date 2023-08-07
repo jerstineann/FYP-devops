@@ -25,7 +25,7 @@ pipeline {
                                ' -Dsonar.projectKey=SBC_Analysis' +
                                ' -Dsonar.sources=.' +
                                ' -Dsonar.host.url=http://192.168.49.1:9000' +
-                               ' -Dsonar.login=sqp_ef0eddc1a0008b3908bb844c6d3cfb161b00c40a'
+                               ' -Dsonar.login=sqp_6ee3883b7b839be72e6b0f850f79def8c6ada11c'
                         }
                      }
               }

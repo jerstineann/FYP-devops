@@ -19,13 +19,13 @@ pipeline {
                 // Change working directory for this stage only
                       script {
                         withSonarQubeEnv('sonarserver') {
-                            sh 'cd /home/shannen/Downloads/FYP-devops/SBCW && ' +
+                            sh 'cd /home/dockeradm/Downloads/FYP-devops/SBCW && ' +
 			       '/opt/sonar-scanner/bin/sonar-scanner' +
 			       ' -X' + // Add -X to enable full debug logging
                                ' -Dsonar.projectKey=SBC_Analysis' +
                                ' -Dsonar.sources=.' +
-                               ' -Dsonar.host.url=http://192.168.81.152:9000' +
-                               ' -Dsonar.login=squ_bbcffd6a15a47fb1d7347fd0a8b66f08cc373289'
+                               ' -Dsonar.host.url=http://192.168.49.1:9000' +
+                               ' -Dsonar.login=sqp_9bb12dc43861c4805674417f232acc705b909060'
                         }
                      }
               }
@@ -45,16 +45,16 @@ pipeline {
             	stage('Build Database Container') {
                     steps {
                         
-                        // Copy necessary files from /home/shannen/Downloads to Jenkins build context
-                        sh 'cp /home/shannen/Downloads/xampp-linux-x64-8.2.4-0-installer.run /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp /home/shannen/Downloads/ib_buffer_pool /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp /home/shannen/Downloads/ibdata1 /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp /home/shannen/Downloads/ib_logfile0 /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp /home/shannen/Downloads/ib_logfile1 /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp /home/shannen/Downloads/ibtmp1 /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp /home/shannen/Downloads/docker-entrypoint.sh /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp /home/shannen/Downloads/start_services.sh /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp -r /home/shannen/Downloads/FYP-devops/sbc /var/lib/jenkins/workspace/FYP_Project'
+                        // Copy necessary files from /home/dockeradm/Downloads to Jenkins build context
+                        sh 'cp /home/dockeradm/Downloads/xampp-linux-x64-8.2.4-0-installer.run /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp /home/dockeradm/Downloads/ib_buffer_pool /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp /home/dockeradm/Downloads/ibdata1 /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp /home/dockeradm/Downloads/ib_logfile0 /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp /home/dockeradm/Downloads/ib_logfile1 /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp /home/dockeradm/Downloads/ibtmp1 /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp /home/dockeradm/Downloads/docker-entrypoint.sh /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp /home/dockeradm/Downloads/start_services.sh /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp -r /home/dockeradm/Downloads/FYP-devops/sbc /var/lib/jenkins/workspace/FYP_Project'
 
                         // Create network if it doesn't exist
                         sh 'docker network create --subnet 192.16.0.0/24 my-network || true'
@@ -62,14 +62,12 @@ pipeline {
                         // Build and run container for Database
                         sh 'docker stop db-con || true'  //true is to prevent the script from failing due to a non-critical error.
                         sh 'docker rm db-con || true'
-                        //sh 'docker rmi db || true'
-                        //sh 'docker build -t db -f /home/shannen/Downloads/db-docker .'
                         sh 'docker run -d --name db-con --net my-network --ip 192.16.0.3 -p 3306:3306 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.3/ || exit 1" --health-interval=30s --health-retries=5 db'
                         
                         // Execute the SQL script inside the container
                         script {
                             sh '''
-                            docker cp /var/lib/jenkins/workspace/FYP_Project@2/setup.sql db-con:/tmp/setup.sql
+                            docker cp /var/lib/jenkins/workspace/FYP_Project/setup.sql db-con:/tmp/setup.sql
                             docker exec db-con ls -l /tmp/setup.sql
                             sleep 10 # Wait for container to fully initialize
                             docker exec db-con sh -c "/opt/lampp/bin/mysql -uroot < /tmp/setup.sql"
@@ -84,9 +82,9 @@ pipeline {
                         sh 'docker stop web-con || true'
                         sh 'docker rm web-con || true'
 
-                        //sh 'docker rmi web || true'
-                        //sh 'docker build -t web -f /home/shannen/Downloads/web-docker .'
-                        sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 81:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web'
+                        sh 'docker rmi web1 || true'
+                        sh 'docker build -t web1 -f /home/shannen/Downloads/web-docker .'
+                        sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 81:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web1'
 	                    sleep 10  //Wait for container to fully initialize
                     }
                 }

@@ -22,7 +22,7 @@ spec:
           image: divya120/web
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /dashboard
               port: 80
             initialDelaySeconds: 30
             periodSeconds: 10

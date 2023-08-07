@@ -19,7 +19,7 @@ pipeline {
                 // Change working directory for this stage only
                       script {
                         withSonarQubeEnv('sonarserver') {
-                            sh 'cd /home/dockeradm/Downloads/SBCW && ' +
+                            sh 'cd /home/dockeradm/Downloads/FYP-devops/SBCW && ' +
 			       '/opt/sonar-scanner/bin/sonar-scanner' +
 			       ' -X' + // Add -X to enable full debug logging
                                ' -Dsonar.projectKey=SBC_Analysis' +

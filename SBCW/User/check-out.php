@@ -46,7 +46,7 @@
 </div>
 <div class="small-container cart-page">
 			<?php
-				if(isset($SESSION['username'])){
+				if(isset($_SESSION['username'])){
 					include('payment.php');
 				}else{
 					include('user_login.php');

@@ -37,7 +37,7 @@ $insert_orders="INSERT INTO user_order (user_id,amount_due,invoice_number,total_
 $result_query=mysqli_query($con,$insert_orders);
 if($result_query){
 	echo"<script>alert('orders are submitted successfully')</script>";
-	echo"<script>windows.open('profile.php','_self')</script>";
+	echo"<script>window.open('profile.php','_self')</script>";
 }
 $insert_pending_orders="INSERT INTO orders_pending (user_id,invoice_number,product_id,quantity,order_status) VALUES ($user_id,$invoice_number,$product_id,$quantity,'$status')";
 $result_pending_orders=mysqli_query($con,$insert_pending_orders);

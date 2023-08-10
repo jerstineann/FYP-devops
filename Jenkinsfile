@@ -96,7 +96,7 @@ pipeline {
        stage('Curl') {
     	   steps {
              script {
-              finall String url = "http://192.16.0.2/sbc/index.php"
+              final String url = "http://192.16.0.2/sbc/index.php"
               final String response = sh(script: "curl -Is $url", returnStdout: true).trim()
               echo "$response" // Use $response and enclose $url in curly braces
              }

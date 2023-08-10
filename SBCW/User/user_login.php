@@ -73,9 +73,12 @@ if(isset($_POST['user_login'])){
 					echo "<script>alert('Login Successful')</script>";
 					echo "<script>window.open('payment.php','_self')</script>";
 				}
-			} else if($user_email_status='Not verified'){
+			} else if($user_email_status=='Not verified'){
 					echo "<script>alert('Your account is not verified')</script>";
 					echo "<script>window.open('verification.php','_self')</script>";
+			}else if ($user_status=='Block'){
+					echo "<script>alert('Your account is block')</script>";
+					echo "<script>window.open('../index.php','_self')</script>";
 			}else{
 					echo "<script>alert('Your account is block')</script>";
 					echo "<script>window.open('../index.php','_self')</script>";

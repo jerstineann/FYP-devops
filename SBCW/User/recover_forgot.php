@@ -108,21 +108,20 @@ require '../vendor/autoload.php';
             $mail->Body="<b>Dear User</b>
             <h3>We received a request to reset your password.</h3>
             <p>Kindly click the below link to reset your password</p>
-            http://192.16.0.2/SBC%20v2/User/reset_psw.php
+            http://192.16.0.2/sbc/User/reset_psw.php
             <br><br>
             <p>With regrads,</p>
             <b>SBC</b>";
-            $mail->send();
-            if(!$mail->send()){
-                ?>
-                    <script>
-                        alert("<?php echo " Invalid Email "?>");
-                    </script>
-                <?php
-            }else{
+            if($mail->send();){
                 ?>
                     <script>
                         window.location.replace("notification.html");
+                    </script>
+                <?php
+            }else{
+                 ?>
+                    <script>
+                        alert("<?php echo " Invalid Email "?>");
                     </script>
                 <?php
             }

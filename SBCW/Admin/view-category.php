@@ -1,7 +1,7 @@
 <h3 class="text-center" style="color:#C65C81;">ALL Categories</h3>
 <!-- category table --->
 <table class="table table-bordered mt-5 text-center">
-    <thead style="background: #00BFFF; color:white;">
+    <thead style="background: #E799A3; color:white;">
         <tr>
             <th>Category ID</th>
             <th>Category Title</th>

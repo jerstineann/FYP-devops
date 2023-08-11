@@ -68,7 +68,7 @@ require '../vendor/autoload.php';
 				</div>
                 <!---- Register button--->
                 <div class="mt-4 pt-2">
-	                <input type="submit" value="Register" class="py-2 px-3 border-0" name="user_register" style="background-color: #00BFFF; color: white;">
+	                <input type="submit" value="Register" class="py-2 px-3 border-0" name="user_register" style="background-color:#E799A3; color: white;">
                     <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="user_login.php" class="text-danger"> Login</a></p>
                 </div>
 			</form>

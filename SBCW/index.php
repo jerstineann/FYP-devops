@@ -45,11 +45,11 @@
 		<ul>
 			<li>On Sale<i class="fa fa-angle-right"></i>
 				<ul>
-					<li><a href="product.php?onSales=1"style="color: #00BFFF">Accessory</a></li>
-					<li><a href="product.php?onSales=2"style="color: #00BFFF">Beds</a></li>
-					<li><a href="product.php?onSales=3"style="color: #00BFFF">Clothing</a></li>
-					<li><a href="product.php?onSales=4"style="color: #00BFFF">Food</a></li>
-					<li><a href="product.php?onSales=5"style="color: #00BFFF">Toys</a></li>
+					<li><a href="product.php?onSales=1"style="color: #E799A3">Accessory</a></li>
+					<li><a href="product.php?onSales=2"style="color: #E799A3">Beds</a></li>
+					<li><a href="product.php?onSales=3"style="color: #E799A3">Clothing</a></li>
+					<li><a href="product.php?onSales=4"style="color: #E799A3">Food</a></li>
+					<li><a href="product.php?onSales=5"style="color: #E799A3">Toys</a></li>
 				</ul>
         	</li>
 			<?php

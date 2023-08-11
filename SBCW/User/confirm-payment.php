@@ -57,7 +57,7 @@
                 </select>
             </div>
             <div class="form-outline my-4 text-center">
-            <input type="submit" value="Confirm" class="py-2 px-3 border-0" style="background-color: #00BFFF; color: white;" name="confirm_payment">
+            <input type="submit" value="Confirm" class="py-2 px-3 border-0" style="background-color: #E799A3; color: white;" name="confirm_payment">
             </div>
         </form>
     </div>

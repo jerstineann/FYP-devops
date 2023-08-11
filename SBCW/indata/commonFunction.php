@@ -24,7 +24,7 @@ include('connect.php');
                             <div class='card-body'>
                                 <h5 class='card-title'>$product_title</h5>
                                 <p class='card-text'>$product_description</p>
-                                <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #00BFFF; color: white;'>Add to cart</a> 
+                                <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
                                 <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ include('connect.php');
                                 <div class='card-body'>
                                     <h5 class='card-title'>$product_title</h5>
                                     <p class='card-text'>$product_description</p>
-                                    <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #00BFFF; color: white;'>Add to cart</a> 
+                                    <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
                                     <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@ include('connect.php');
                 while ($row_subcategory = mysqli_fetch_assoc($result_subcategories)) {
                     $subcategory_title = $row_subcategory['subcategory_title'];
                     $subcategory_id = $row_subcategory['subcategory_id'];
-                    echo "<li><a href='product.php?subcategory=$subcategory_id' style='color: #00BFFF; text-decoration: none;'>$subcategory_title</a></li>";
+                    echo "<li><a href='product.php?subcategory=$subcategory_id' style='color: #E799A3; text-decoration: none;'>$subcategory_title</a></li>";
                 }
                 echo "</ul>";
             }
@@ -141,7 +141,7 @@ include('connect.php');
                                 <div class='card-body'>
                                     <h5 class='card-title'>$product_title</h5>
                                     <p class='card-text'>$product_description</p>
-                                    <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #00BFFF; color: white;'>Add to cart</a> 
+                                    <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
                                     <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@ include('connect.php');
                             <div class='card-body'>
                                 <h5 class='card-title'>$product_title</h5>
                                 <p class='card-text'>$product_description</p>
-                                <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #00BFFF; color: white;'>Add to cart</a> 
+                                <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
                                 <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                             </div>
                         </div>
@@ -199,7 +199,7 @@ include('connect.php');
 			$brand_title=$row_data['brand_title'];
 			$brand_id=$row_data['brand_id'];
 			echo "
-            <li class='nav-item'><a href='product.php?brand=$brand_id' style='color: #00BFFF; text-decoration: none;'>$brand_title</a></li>";
+            <li class='nav-item'><a href='product.php?brand=$brand_id' style='color: #E799A3; text-decoration: none;'>$brand_title</a></li>";
 		}
         echo "</ul>";
     }
@@ -233,7 +233,7 @@ include('connect.php');
                                     <div class='card-body'>
                                         <h5 class='card-title'>$product_title</h5>
                                         <p class='card-text'>$product_description</p>
-                                        <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #00BFFF; color: white;'>Add to cart</a> 
+                                        <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
                                         <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ include('connect.php');
 					<div class='card-body'>
 					  <h5 class='card-title'>$product_title</h5>
 					  <p class='card-text'>$product_description</p>
-					  <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #00BFFF; color: white;'>Add to cart</a> 
+					  <a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
 					  <a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
 					</div>
 				</div>
@@ -297,7 +297,7 @@ function getnewProduct(){
 				<div class='card-body'>
 					<h5 class='card-title'>$product_title</h5>
 					<p class='card-text'>$product_description</p>
-					<a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #00BFFF; color: white;'>Add to cart</a> 
+					<a href='product.php?add_to_cart=$product_id' class='btn btn-info' style='background-color: #E799A3; color: white;'>Add to cart</a> 
 					<a href='product-details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
 				</div>
 			</div>
@@ -354,7 +354,7 @@ function viewDetails()
                     margin-top: 10px;
                 }
                 .go-back a {
-                    color: #00BFFF;
+                    color: #E799A3;
                     text-decoration: none;
                 }
                 .go-back a:hover {

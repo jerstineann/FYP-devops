@@ -71,7 +71,7 @@ if (isset($_POST['user_update'])) {
                value="<?php echo isset($user_address) ? $user_address : ''; ?>" name="user_address">
     </div>
     <input type="submit" value="Update" class="py-2 px-3 border-0" name="user_update"
-           style="background-color: #00BFFF; color: white;">
+           style="background-color: #E799A3; color: white;">
 </form>
 </body>
 </html>

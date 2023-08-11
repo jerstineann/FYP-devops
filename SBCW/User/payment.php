@@ -22,15 +22,6 @@
     $run_query=mysqli_fetch_array($result);
     $user_id=$run_query['user_id'];
 ?>
-<div class="top-nav-bar">
-	<div class="search-box">
-        <a href="../index.php"><img src="../images/logo-dark.jpg" class="logo" alt=""></a>
-		<form class="d-flex justify-content-center" action="search-product.php" method="get">
-        	<input class="form-control" type="search" aria-label="Search" name="search_data">
-			<input type="submit" value="Search" class="btn custom-btn" name="search_data_product">
-		</form>
-    </div>
-</div>
 <div class="container">
 	<h2 class="text-center" style="color: #E799A3;">Payment options</h2>
     <div class="row d-flex justify-content align-items-center my-5">

@@ -19,7 +19,7 @@
 <h3 class="text-center my-5" style="color:#C65C81;">ALL My Orders</h3>
 <div class="container">
     <table class="table table-bordered mt-5 mx-auto">
-        <thead style="background: #00BFFF; color:white;">
+        <thead style="background: #E799A3; color:white;">
             <tr>
                 <th>SI No</th>
                 <th>Amount Due</th>

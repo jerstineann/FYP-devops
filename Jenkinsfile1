@@ -14,14 +14,6 @@ pipeline {
             }
         }
 
-	stage('Display Directory') {
-            steps {
-                script {
-                    def currentDirectory = sh(script: 'pwd', returnStdout: true).trim()
-                    echo "Current Directory: ${currentDirectory}"
-                }
-            }
-        }
 
 	stage('SonarQube Analysis') {
             steps {

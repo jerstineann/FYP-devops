@@ -1,0 +1,83 @@
+.logo{
+	height: 40px;
+	margin: 5px 10px;
+}
+.search-box{
+	display: inline-flex;
+	text-align: center;
+	width: 60%;
+}
+.search-box .custom-btn {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	margin-top: 9px;
+	border-color: #00BFFF !important;
+	background-color: #00BFFF !important;
+	color: #fff !important;
+	border-radius: 0 20px 20px 0 !important;
+	padding: 8px;
+  	height: 40px !important;
+}
+.footer{
+	margin-top: 40px;
+	background: #000;
+	color: #fff;
+}
+.footer h1{
+	font-size: 15px;
+	margin: 25px 0;
+}
+.footer p{
+	font-size: 12px;
+}
+.copyright{
+	margin-bottom: -80px;
+	text-align: center;
+	font-size: 15px;
+	padding-bottom: 20px;
+}
+.footer hr{
+	margin-top: 10px;
+	background-color: #ccc;
+}
+.footer-image img{
+	width: 150px;
+}
+.footer .row .fa{
+	padding-right: 20px;
+	font-size: 15px;
+}
+.footer .col-md-3 a{
+	text-decoration: none;
+	color:#ccc;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+thead {
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background: #00BFFF;
+    font-weight: normal;
+}
+td {
+    padding: 10px 5px;
+}
+td .quantity{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+td a {
+    color: #00BFFF;
+    font-size: 12px;
+}
+td img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}

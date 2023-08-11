@@ -1,8 +1,8 @@
 <?php
     class DBController {
         private $host = "192.16.0.3";
-        private $user = "root";
-        private $pass = "";
+        private $user = "sbc";
+        private $pass = "fyp";
         private $dbname = "sbc";
         function __construct() {
             $this->conn = $this->connectDB();

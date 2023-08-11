@@ -20,14 +20,14 @@
 	width: 20%;
 }
 .navbar-light{
-	background-color: #00BFFF;
+	background-color: #E799A3;
 }
 .admin-image{
 	width: 100px;
 	object-fit: contain;
 } 
 .footer{
-	background-color: #00BFFF; 
+	background-color:#E799A3; 
 	padding: 0.75rem; 
 	text-align: center;
 	bottom: 0;
@@ -67,18 +67,18 @@
 					?>
     			</div>
 				<div class="button text-center">
-					<button class="my-3"><a href="insert-product.php" class="nav-link text-light my-1" style="background-color: #00BFFF;">Insert Products</a></button>
-					<button class="my-3"><a href="profile.php?view-product" class="nav-link text-light my-1" style="background-color: #00BFFF;">View Products</a></button>
-					<button class="my-3"><a href="profile.php?insert-category" class="nav-link text-light my-1" style="background-color: #00BFFF;">Insert Categories</a></button>
-					<button class="my-3"><a href="profile.php?view-category" class="nav-link text-light my-1"style="background-color: #00BFFF;">View Categories</a></button>
-					<button class="my-3"><a href="profile.php?insert-subCategory" class="nav-link text-light my-1" style="background-color: #00BFFF;">Insert Sub Categories</a></button>
-					<button class="my-3"><a href="profile.php?view-subcategory" class="nav-link text-light my-1" style="background-color: #00BFFF;">View Sub Categories</a></button>
-					<button class="my-3"><a href="profile.php?insert-brand" class="nav-link text-light my-1" style="background-color: #00BFFF;">Insert Brands</a></button>
-					<button class="my-3"><a href="profile.php?view-brand" class="nav-link text-light my-1" style="background-color: #00BFFF;">View Brands</a></button>
-					<button class="my-3"><a href="profile.php?list_order" class="nav-link text-light my-1" style="background-color: #00BFFF;">All Orders</a></button>
-					<button class="my-3"><a href="profile.php?all_payment" class="nav-link text-light my-1" style="background-color: #00BFFF;">All Payments</a></button>
-					<button class="my-3"><a href="profile.php?list_user" class="nav-link text-light my-1" style="background-color: #00BFFF;">List Users</a></button>
-					<button class="my-3"><a href="admin-logout.php" class="nav-link text-light my-1" style="background-color: #00BFFF;">Logout</a></button>
+					<button class="my-3"><a href="insert-product.php" class="nav-link text-light my-1" style="background-color:#E799A3;">Insert Products</a></button>
+					<button class="my-3"><a href="profile.php?view-product" class="nav-link text-light my-1" style="background-color: #E799A3;">View Products</a></button>
+					<button class="my-3"><a href="profile.php?insert-category" class="nav-link text-light my-1" style="background-color: #E799A3;">Insert Categories</a></button>
+					<button class="my-3"><a href="profile.php?view-category" class="nav-link text-light my-1"style="background-color: #E799A3;">View Categories</a></button>
+					<button class="my-3"><a href="profile.php?insert-subCategory" class="nav-link text-light my-1" style="background-color: #E799A3;">Insert Sub Categories</a></button>
+					<button class="my-3"><a href="profile.php?view-subcategory" class="nav-link text-light my-1" style="background-color: #E799A3;">View Sub Categories</a></button>
+					<button class="my-3"><a href="profile.php?insert-brand" class="nav-link text-light my-1" style="background-color: #E799A3;">Insert Brands</a></button>
+					<button class="my-3"><a href="profile.php?view-brand" class="nav-link text-light my-1" style="background-color: #E799A3;">View Brands</a></button>
+					<button class="my-3"><a href="profile.php?list_order" class="nav-link text-light my-1" style="background-color: #E799A3;">All Orders</a></button>
+					<button class="my-3"><a href="profile.php?all_payment" class="nav-link text-light my-1" style="background-color: #E799A3;">All Payments</a></button>
+					<button class="my-3"><a href="profile.php?list_user" class="nav-link text-light my-1" style="background-color: #E799A3;">List Users</a></button>
+					<button class="my-3"><a href="admin-logout.php" class="nav-link text-light my-1" style="background-color:#E799A3;">Logout</a></button>
 				</div>
 			</div>
 		</div>

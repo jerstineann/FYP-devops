@@ -72,16 +72,16 @@
             <li class="nav-item">
                 <img src="../images/profile-pic.jpeg" alt="">
             </li>
-            <li class="nav-item" style="background:#00BFFF;color:white;">
+            <li class="nav-item" style="background:#E799A3;color:white;">
                 <a class="nav-link" href="profile.php?my-orders" style="text-decoration: none;color:white;">My Orders</a>
             </li>
-            <li class="nav-item" style="background:#00BFFF;color:white;">
+            <li class="nav-item" style="background:#E799A3;color:white;">
                 <a class="nav-link" href="profile.php?edit-account" style="text-decoration: none;color:white;">Edit Account</a>
             </li>
-            <li class="nav-item" style="background:#00BFFF;color:white;">
+            <li class="nav-item" style="background:#E799A3;color:white;">
                 <a class="nav-link" href="profile.php" style="text-decoration: none;color:white;">Pending Order</a>
             </li>
-            <li class="nav-item" style="background:#00BFFF;color:white;">
+            <li class="nav-item" style="background:#E799A3;color:white;">
                 <a class="nav-link" href="profile.php?delete-account" style="text-decoration: none;color:white;">Delete Account</a>
             </li>
         </ul>

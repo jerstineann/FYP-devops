@@ -23,7 +23,7 @@ pipeline {
                             sh 'cd /home/shannen/Downloads/Devops/SBCW && ' +
 			       '/opt/sonar-scanner/bin/sonar-scanner' +
 			       ' -X' + // Add -X to enable full debug logging
-                               ' -Dsonar.projectKey=SBC_Analysis' +
+                               ' -Dsonar.projectKey=SBC_Analysis_1' +
                                ' -Dsonar.sources=.' +
                                ' -Dsonar.host.url=http://192.168.81.153:9000' +
                                ' -Dsonar.login=squ_bbcffd6a15a47fb1d7347fd0a8b66f08cc373289'

@@ -28,7 +28,7 @@ if(isset($_GET['edit_user'])){
         height: calc(1.5em + 0.75rem + 8px);
     }
     .int-btn {
-        background-color: #00BFFF;
+        background-color: #E799A3;
         color: white;
         padding: 0.5rem 1rem;
         border: none;

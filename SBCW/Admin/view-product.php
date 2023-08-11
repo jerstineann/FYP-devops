@@ -1,7 +1,7 @@
 <h3 class="text-center" style="color:#C65C81;">ALL Products</h3>
 <!--- product table--> 
 <table class="table table-bordered mt-5">
-    <thead style="background: #00BFFF; color:white;">
+    <thead style="background: #E799A3; color:white;">
         <tr>
             <th>Product ID</th>
             <th>Product Title</th>

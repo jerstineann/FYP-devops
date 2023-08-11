@@ -50,7 +50,7 @@ require '../vendor/autoload.php';
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <input type="submit" value="Recover" name="recover" style="background-color: #00BFFF; color: white;  border: none;">
+                                <input type="submit" value="Recover" name="recover" style="background-color: #E799A3; color: white;  border: none;">
                             </div>
                     </div>
                     </form>

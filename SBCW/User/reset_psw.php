@@ -50,7 +50,7 @@ include('../indata/connect.php');
                                 </div>
 
                                 <div class="col-md-6 offset-md-4">
-                                    <input type="submit" value="reset" name="reset" style="background-color: #00BFFF; color: white;  border: none; padding: 5px 10px;"></input>
+                                    <input type="submit" value="reset" name="reset" style="background-color: #E799A3; color: white;  border: none; padding: 5px 10px;"></input>
                                 </div>
                             </form>
                         </div>

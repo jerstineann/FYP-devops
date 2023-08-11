@@ -20,7 +20,7 @@
         .button-cart {
             background-color: transparent;
             border: none;
-            color: #00BFFF;
+            color: #E799A3;
             font-weight: bold;
             outline: none;
         }
@@ -141,7 +141,7 @@
             } else {
                 echo "<h2 class='text-center text-danger'>Cart is empty</h2>
                         <div class='d-flex justify-content-end mt-4'>
-                            <button class='px-3 py-2 border-0 mx-3' style='background-color: #00BFFF; color: white;'><a href='product.php' class='mr-2' style='text-decoration: none; color: white;'>Continue shopping</a></button>
+                            <button class='px-3 py-2 border-0 mx-3' style='background-color: #E799A3; color: white;'><a href='product.php' class='mr-2' style='text-decoration: none; color: white;'>Continue shopping</a></button>
                         </div>";
             }
         ?>

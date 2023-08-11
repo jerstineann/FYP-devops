@@ -83,9 +83,9 @@ pipeline {
                         sh 'docker stop web-con || true'
                         sh 'docker rm web-con || true'
 
-                        //sh 'docker rmi web || true'
+                        //sh 'docker rmi web1 || true'
                         //sh 'docker build -t web -f /home/shannen/Downloads/web-docker .'
-                        sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 81:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web'
+                        sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 81:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web1'
 	                    sleep 10  //Wait for container to fully initialize
                     }
                 }

@@ -13,7 +13,7 @@ body{
 	position: sticky;
 	background: #fff;
 	margin-bottom: 20px;
-	border-bottom: 3px solid #00BFFF;
+	border-bottom: 3px solid #E799A3;
 	z-index: 2;
 }
 .logo{
@@ -24,15 +24,15 @@ body{
 	display: inline-block;
   	margin: 0;
 	margin-top: 9px;
-  	border: 1px solid #00BFFF !important;
+  	border: 1px solid #E799A3 !important;
   	border-radius: 20px 0 0 20px !important;
   	box-shadow: none !important;
   	padding: 8px;
   	height: 40px !important;
 }
 .input-group-text{
-	background: #00BFFF !important;
-	border: 1px solid #00BFFF !important;
+	background: #E799A3 !important;
+	border: 1px solid #E799A3 !important;
 	margin: 8.5px 10px 3px 0 !important;
 	border-top-left-radius: 0px !important;
 	border-bottom-left-radius: 0px !important;
@@ -50,8 +50,8 @@ body{
 	vertical-align: top;
 	margin: 0;
 	margin-top: 9px;
-	border-color: #00BFFF !important;
-	background-color: #00BFFF !important;
+	border-color: #E799A3 !important;
+	background-color: #E799A3 !important;
 	color: #fff !important;
 	border-radius: 0 20px 20px 0 !important;
 	padding: 8px;
@@ -71,7 +71,7 @@ body{
 	list-style-type: none;
 	padding: 15px 35px;
 	text-align: center;
-	background-color: #00BFFF;
+	background-color: #E799A3;
 	cursor: pointer;
 }
 .menu-bar ul li a{
@@ -120,7 +120,7 @@ a{
 	box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);
 }
 .side-menu ul li:hover{
-	color: #00BFFF;
+	color: #E799A3;
 }
 .fa-angle-right{
 	margin-top: 4px;
@@ -130,7 +130,7 @@ a{
 #menu-btn, #close-btn{
 	font-size: 30px;
 	margin: 10px;
-	color: #00BFFF;
+	color: #E799A3;
 	display: none;
 }
 /*-----slider------*/
@@ -182,7 +182,7 @@ a{
   }
   .title-box::after {
 	content: '';
-	border-top: 40px solid #00BFFF;
+	border-top: 40px solid #E799A3;
 	border-right: 50px solid transparent;
 	position: absolute;
 	top: 0;
@@ -264,7 +264,7 @@ a{
 	color: #555;
 }
 .single-product .price{
-	color: #00BFFF;
+	color: #E799A3;
 	font-size: 26px;
 	font-weight: bold;
 	padding-top: 20px;
@@ -277,7 +277,7 @@ a{
 	width: 30px;
 }
 .single-product .btn-primary{
-	background: #00BFFF !important;
+	background: #E799A3 !important;
 	color: #fff;
 	font-size: 15px;
 	margin-left: 20px;
@@ -287,7 +287,7 @@ a{
 /*------product description--------*/
 .product-description h6{
 	margin-top: 50px;
-	color: #00BFFF;
+	color: #E799A3;
 }
 .product-description p{
 	margin-top: 30px;
@@ -353,7 +353,7 @@ a{
 }
 .contact-container .contactInfo .box .text h3 {
 	font-weight: 500;
-	color: #00BFFF;
+	color: #E799A3;
 }
 .contactForm {
 	width: 100%;
@@ -400,7 +400,7 @@ a{
 }
 .contactForm .inputBox input[type="submit"] {
 	width: 100px;
-	background: #00BFFF;
+	background: #E799A3;
 	color: #fff;
 	border: none;
 	cursor: pointer;
@@ -478,7 +478,7 @@ th {
     text-align: left;
     padding: 5px;
     color: #fff;
-    background: #00BFFF;
+    background: #E799A3;
     font-weight: normal;
 }
 td {
@@ -490,7 +490,7 @@ td .quantity{
     padding: 5px;
 }
 td a {
-    color: #00BFFF;
+    color:#E799A3;
     font-size: 12px;
 }
 td img {
@@ -512,7 +512,7 @@ td img {
     justify-content: flex-end;
 }
 .total-price table {
-    border-top: 3px solid #00BFFF;
+    border-top: 3px solid #E799A3;
     width: 100%;
     max-width: 450px;
 }
@@ -523,7 +523,7 @@ th:last-child {
     text-align: right;
 }
 .btn.custom-btn {
-    background-color: #00BFFF;
+    background-color: #E799A3;
     color: white;
 }
 /*------media query for small screen--------*/

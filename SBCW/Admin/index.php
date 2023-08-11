@@ -20,7 +20,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
     <style>
         .int-btn {
-            background-color: #00BFFF;
+            background-color: #E799A3;
             color: white;
             padding: 0.5rem 1rem;
             border: none;

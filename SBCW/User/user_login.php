@@ -35,7 +35,7 @@ include('../indata/commonFunction.php');
 				</div>
                 <!---- Login button--->
                 <div class="mt-4 pt-2">
-	                <input type="submit" value="Login" class="py-2 px-3 border-0" name="user_login" style="background-color: #00BFFF; color: white;">
+	                <input type="submit" value="Login" class="py-2 px-3 border-0" name="user_login" style="background-color: #E799A3; color: white;">
 					<p class="small fw-bold mt-2 pt-1 mb-0"><a href="recover_forgot.php" class="text-danger">Forgot Your Password?</a></p>
                     <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="user_registration.php" class="text-danger"> Register</a></p>
                 </div>

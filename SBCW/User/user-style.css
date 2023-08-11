@@ -12,8 +12,8 @@
 	vertical-align: top;
 	margin: 0;
 	margin-top: 9px;
-	border-color: #00BFFF !important;
-	background-color: #00BFFF !important;
+	border-color: #E799A3 !important;
+	background-color: #E799A3 !important;
 	color: #fff !important;
 	border-radius: 0 20px 20px 0 !important;
 	padding: 8px;
@@ -61,7 +61,7 @@ thead {
     text-align: left;
     padding: 5px;
     color: #fff;
-    background: #00BFFF;
+    background: #E799A3;
     font-weight: normal;
 }
 td {
@@ -73,7 +73,7 @@ td .quantity{
     padding: 5px;
 }
 td a {
-    color: #00BFFF;
+    color: #E799A3;
     font-size: 12px;
 }
 td img {

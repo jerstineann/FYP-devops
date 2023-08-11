@@ -19,7 +19,7 @@
             background-color: #6c757d;
         }
         .btn-custom {
-            background-color: #00BFFF;
+            background-color: #E799A3;
             color: white;
         }
         .btn-custom:hover {

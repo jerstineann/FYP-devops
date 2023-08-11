@@ -68,7 +68,7 @@ include('../indata/commonFunction.php');
 					<input type="password" id="conf_user_password" class="form-control" placeholder="Enter your confirm password" autocomplete="off" required="required" name="conf_user_password">
 				</div>
                 <div class="mt-4">
-                    <input type="submit"  class="py-2 px-3 border-0" name="change_password" placeholder="save" style="background-color: #00BFFF; color: white;">
+                    <input type="submit"  class="py-2 px-3 border-0" name="change_password" placeholder="save" style="background-color: #E799A3; color: white;">
                 </div>
             </form>
         </div>

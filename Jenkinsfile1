@@ -54,7 +54,7 @@ pipeline {
                         sh 'cp /home/shannen/Downloads/ibtmp1 /var/lib/jenkins/workspace/FYP_Project'
                         sh 'cp /home/shannen/Downloads/docker-entrypoint.sh /var/lib/jenkins/workspace/FYP_Project'
                         sh 'cp /home/shannen/Downloads/start_services.sh /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp -r /home/shannen/Downloads/FYP-devops/sbc /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp -r /home/shannen/Downloads/Devops/sbc /var/lib/jenkins/workspace/FYP_Project'
 
                         // Create network if it doesn't exist
                         sh 'docker network create --subnet 192.16.0.0/24 my-network || true'

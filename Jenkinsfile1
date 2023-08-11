@@ -14,6 +14,15 @@ pipeline {
             }
         }
 
+	stage('Display Directory') {
+            steps {
+                script {
+                    def currentDirectory = sh(script: 'pwd', returnStdout: true).trim()
+                    echo "Current Directory: ${currentDirectory}"
+                }
+            }
+        }
+
 	stage('SonarQube Analysis') {
             steps {
                 // Change working directory for this stage only
@@ -46,7 +55,7 @@ pipeline {
                     steps {
                         
                         // Copy necessary files from /home/shannen/Downloads to Jenkins build context
-                        sh 'cp /home/shannen/Downloads/xampp-linux-x64-8.2.4-0-installer.run /var/lib/jenkins/workspace/FYP_Project (Team)'
+                        sh 'cp /home/shannen/Downloads/xampp-linux-x64-8.2.4-0-installer.run /var/lib/jenkins/workspace/FYP_Project'
                         sh 'cp /home/shannen/Downloads/ib_buffer_pool /var/lib/jenkins/workspace/FYP_Project'
                         sh 'cp /home/shannen/Downloads/ibdata1 /var/lib/jenkins/workspace/FYP_Project'
                         sh 'cp /home/shannen/Downloads/ib_logfile0 /var/lib/jenkins/workspace/FYP_Project'

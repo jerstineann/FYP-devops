@@ -41,16 +41,16 @@ include('../indata/commonFunction.php');
             border: 1px solid #ced4da;
         }
         .form-control:focus {
-            border-color: #00BFFF;
+            border-color: #E799A3;
             box-shadow: none;
         }
         .btn-login {
-            background-color: #00BFFF;
+            background-color: #E799A3;
             color: white;
             font-weight: bold;
         }
         .btn-login:hover {
-            background-color: #bd685f;
+            background-color: #E799A3;
         }
     </style>
 </head>

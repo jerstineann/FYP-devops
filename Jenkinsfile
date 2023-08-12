@@ -8,11 +8,11 @@ pipeline {
 	
     stages {
 
-        //stage('Gatekeeper') {
+        stage('Gatekeeper') {
             steps {
                 input(message: 'Proceed with pipeline deployment?')
             }
-        }//
+        }
 
 	stage('SonarQube Analysis') {
             steps {
@@ -105,4 +105,4 @@ pipeline {
 
 
      }
-  
+}

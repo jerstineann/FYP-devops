@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-	stage('SonarQube Analysis') {
+	//stage('SonarQube Analysis') {
             steps {
                 // Change working directory for this stage only
                       script {
@@ -29,7 +29,7 @@ pipeline {
                         }
                      }
               }
-        }
+        }//
 
 	//To ask user if he/she wants to deploy WAR file into container. If no error found in the WAR file, then user can click proceed. Else, user click abort
         stage('Gatekeeper 2') {

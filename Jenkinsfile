@@ -22,7 +22,7 @@ pipeline {
                             sh 'cd /home/dockeradm/Downloads/FYP-devops/SBCW && ' +
 			       '/opt/sonar-scanner/bin/sonar-scanner' +
 			       ' -X' + // Add -X to enable full debug logging
-                               ' -Dsonar.projectKey=SBC_Analysis' +
+                               ' -Dsonar.projectKey=SBC_Analysis_1' +
                                ' -Dsonar.sources=.' +
                                ' -Dsonar.host.url=http://192.168.49.1:9000' +
                                ' -Dsonar.login=sqp_6ee3883b7b839be72e6b0f850f79def8c6ada11c'

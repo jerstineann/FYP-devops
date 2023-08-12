@@ -14,15 +14,16 @@ pipeline {
             }
         }
 
+
 	stage('SonarQube Analysis') {
             steps {
                 // Change working directory for this stage only
                       script {
                         withSonarQubeEnv('sonarserver') {
-                            sh 'cd /home/shannen/Downloads/FYP-devops/SBCW && ' +
+                            sh 'cd /home/shannen/Downloads/Devops/SBCW && ' +
 			       '/opt/sonar-scanner/bin/sonar-scanner' +
 			       ' -X' + // Add -X to enable full debug logging
-                               ' -Dsonar.projectKey=SBC_Analysis' +
+                               ' -Dsonar.projectKey=SBC_Analysis_1' +
                                ' -Dsonar.sources=.' +
                                ' -Dsonar.host.url=http://192.168.81.153:9000' +
                                ' -Dsonar.login=squ_bbcffd6a15a47fb1d7347fd0a8b66f08cc373289'
@@ -54,7 +55,7 @@ pipeline {
                         sh 'cp /home/shannen/Downloads/ibtmp1 /var/lib/jenkins/workspace/FYP_Project'
                         sh 'cp /home/shannen/Downloads/docker-entrypoint.sh /var/lib/jenkins/workspace/FYP_Project'
                         sh 'cp /home/shannen/Downloads/start_services.sh /var/lib/jenkins/workspace/FYP_Project'
-                        sh 'cp -r /home/shannen/Downloads/FYP-devops/sbc /var/lib/jenkins/workspace/FYP_Project'
+                        sh 'cp -r /home/shannen/Downloads/Devops/sbc /var/lib/jenkins/workspace/FYP_Project'
 
                         // Create network if it doesn't exist
                         sh 'docker network create --subnet 192.16.0.0/24 my-network || true'
@@ -83,9 +84,9 @@ pipeline {
                         sh 'docker stop web-con || true'
                         sh 'docker rm web-con || true'
 
-                        //sh 'docker rmi web || true'
-                        //sh 'docker build -t web -f /home/shannen/Downloads/web-docker .'
-                        sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 81:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web'
+                        //sh 'docker rmi web2 || true'
+                        //sh 'docker build -t web2 -f /home/shannen/Downloads/web-docker .'
+                        sh 'docker run -d --name web-con --net my-network --ip 192.16.0.2 -p 81:80 --restart=on-failure:5 --health-cmd="curl -f http://192.16.0.2/ || exit 1" --health-interval=30s --health-retries=5 web2'
 	                    sleep 10  //Wait for container to fully initialize
                     }
                 }

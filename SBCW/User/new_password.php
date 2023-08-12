@@ -45,12 +45,14 @@ include('../indata/commonFunction.php');
             box-shadow: none;
         }
         .btn-login {
+
             background-color: #E799A3;
+
             color: white;
             font-weight: bold;
         }
         .btn-login:hover {
-            background-color: #bd685f;
+            background-color: #00BFFF;
         }
     </style>
 </head>

@@ -1,57 +1,37 @@
 <?php
 	include('../indata/connect.php');
-	session_start();
+    include('../indata/commonFunction.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SBC | Check Out</title>
+    <title>SBC | Payment </title>
 	<link rel="icon" type="image/jpg" href="../images/logo-dark.jpg">
-    <link rel="stylesheet" href="user-style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="top-nav-bar">
-	<div class="search-box">
-        <a href="../index.php"><img src="../images/logo-dark.jpg" class="logo" alt=""></a>
-		<form class="d-flex justify-content-center" action="search-product.php" method="get">
-        	<input class="form-control" type="search" aria-label="Search" name="search_data">
-			<input type="submit" value="Search" class="btn custom-btn" name="search_data_product">
-		</form>
+    <!-- php code to access user id --->
+<?php
+    $user_ip=getIPAddress();
+    $get_user="SELECT *FROM user_table WHERE user_ip='$user_ip'";
+    $result=mysqli_query($con,$get_user);
+    $run_query=mysqli_fetch_array($result);
+    $user_id=$run_query['user_id'];
+?>
+<div class="container">
+	<h2 class="text-center" style="color: #E799A3;">Payment options</h2>
+    <div class="row d-flex justify-content align-items-center my-5">
+        <div class="col-md-6">
+            <a href="https://www.paypal.com" target="_blank"><img src="../images/UPI.jpeg" alt=""></a>
+        </div>
+        <div class="col-md-6">
+            <a href="order.php?user_id=<?php echo $user_id ?>" style="text-decoration: none; color: black;"><h2>Pay offline</h2></a>
+        </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-	    <ul class="navbar-nav me-auto">
-			<?php
-				if(!isset($_SESSION['username'])){
-					echo" <li class='nav-item'>
-						<a class='nav-link' href='#'>Welcome Guest</a>
-					</li>
-					<li class='nav-item'>
-						<a class='nav-link' href='user_login.php'>Login</a>
-					</li>";
-				}else{
-					echo"<li class='nav-item'>
-					<a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a>
-				</li> 
-				<li class='nav-item'>
-					<a class='nav-link' href='logout.php'>Logout</a>
-				</li>";
-				}
-			?>
-	    </ul>
-    </nav>
-</div>
-<div class="small-container cart-page">
-			<?php
-				if(isset($_SESSION['username'])){
-					include('payment.php');
-				}else{
-					include('user_login.php');
-				}
-			?>
 </div>
 <!-------- footer -------->
 <section class="footer">
@@ -81,7 +61,7 @@
 		<div class="col-md-3 footer-image">
 			<h1>Download App</h1>
 			<img src="../images/play-store.png" alt="">
-			<img src="../images/app-store.png" alr="">
+			<img src="../images/app-store.png" alt="">
 		</div>
 	</div>
 	<hr>
